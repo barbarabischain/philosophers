@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:54:02 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 12:31:33 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:04:37 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	print_mutex(t_philo *philo, int action)
 {
-	//se todos estiverem
-	//mutex
+	pthread_mutex_lock(&philo->table->mutex_printf);
 	if (action == HOLDING_FORK)
-		printf("%d has taken a fork\n", philo->id);
+		printf("%ld %d has taken a fork\n", (get_time() - philo->table->start_time), philo->id + 1);
 	else if (action == EATING)
-		printf("%d is eating\n", philo->id);
+		printf("%ld %d is eating\n", (get_time() - philo->table->start_time), philo->id + 1);
 	else if (action == THINKING)
-		printf("%d is thinking\n", philo->id);
+		printf("%ld %d is thinking\n", (get_time() - philo->table->start_time), philo->id + 1);
 	else if (action == SLEEPING)
-		printf("%d is sleeping\n", philo->id);
+		printf("%ld %d is sleeping\n",(get_time() - philo->table->start_time), philo->id + 1);
+	pthread_mutex_unlock(&philo->table->mutex_printf);
 }

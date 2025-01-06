@@ -6,7 +6,7 @@
 #    By: babischa <babischa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:01:22 by babischa          #+#    #+#              #
-#    Updated: 2025/01/06 12:16:21 by babischa         ###   ########.fr        #
+#    Updated: 2025/01/06 15:11:47 by babischa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS 		:=	-Werror -Wextra -Wall -g3
 HEADERS 	:=	-I ./include
 
 SRC_PHILO	:=	main \
-				routine \
+				life_cicle \
 				print_actions \
 				utils
 

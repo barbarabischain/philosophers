@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 14:17:29 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:15:43 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ typedef struct s_table
     pthread_mutex_t mutex_printf;
 }   t_table;
 
+/*** FUNCTIONS ***/
 
 void	    print_mutex(t_philo *philo, int action);
-void	    *routine(void	*arg);
-
+void	    *life_cicle(void	*arg);
 
 /*** UTILS ***/
+long        get_time(void);
 long int	ft_atol(const char *nptr);
 int	        is_digit(char *str);
 

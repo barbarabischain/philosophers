@@ -6,11 +6,19 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:31:04 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/02 16:54:17 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:17:59 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
+
+long get_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
 
 int	is_digit(char *str)
 {

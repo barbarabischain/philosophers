@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   routine.c                                          :+:      :+:    :+:   */
+/*   life_cicle.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 13:49:21 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:46:25 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	thinking(t_philo *philo)
 	print_mutex(philo, THINKING);
 }
 
-void	*routine(void	*arg)
+void	*life_cicle(void	*arg)
 {
 	t_philo	*philo;
 	int		meals;

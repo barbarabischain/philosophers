@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:39:59 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 17:48:41 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:16:00 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	receive_input(t_table *table, char **argv)
 	else
 		table->number_of_meals = -1;
 	table->start_time = get_time();
-	//printf("initial time: %ld\n", table->start_time);
 }
 
 void	philosophers_birth(t_table	*table)
@@ -71,11 +70,8 @@ void	philosophers_birth(t_table	*table)
 		i++;
 	}
 	i = 0;
-	while ( i < table->nbr_of_philo)
-	{
-		pthread_join(table->philos[i].thread_id, NULL);
-		i++;
-	}
+	while (i < table->nbr_of_philo)
+		pthread_join(table->philos[i++].thread_id, NULL);
 	pthread_mutex_destroy(&table->mutex_printf);
 }
 
@@ -89,5 +85,6 @@ int main(int argc, char **argv)
 	philosophers_birth(&table);
 	// if (table.nbr_of_philo == 1)
 	// 	one_philo(&table);
+	clean_corpses(&table);
 	return (0);
 }

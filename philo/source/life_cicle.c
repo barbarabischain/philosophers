@@ -6,16 +6,21 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 17:46:25 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/06 18:15:39 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
+// void	taking_forks(t_philo *philo)
+// {
+
+// }
+
 void	eating(t_philo *philo)
 {
 	print_mutex(philo, EATING);
-	usleep(philo->table->time_to_eat); //time to eat esta em milisegundo -> passar para micro
+	usleep(philo->table->time_to_eat); //time to eat esta em milisegundo -> passar para micro (dica)
 }
 
 void	sleeping(t_philo *philo)

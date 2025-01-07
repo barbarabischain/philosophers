@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 17:15:43 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:04:52 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_table
 
 void	    print_mutex(t_philo *philo, int action);
 void	    *life_cicle(void	*arg);
+void	    clean_corpses(t_table *table);
 
 /*** UTILS ***/
 long        get_time(void);

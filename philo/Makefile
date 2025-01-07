@@ -6,7 +6,7 @@
 #    By: babischa <babischa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:01:22 by babischa          #+#    #+#              #
-#    Updated: 2025/01/06 15:11:47 by babischa         ###   ########.fr        #
+#    Updated: 2025/01/07 12:05:02 by babischa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ HEADERS 	:=	-I ./include
 SRC_PHILO	:=	main \
 				life_cicle \
 				print_actions \
+				clean_corpses \
 				utils
 
 OBJ_PHILO	:=	$(addprefix objects/, $(addsuffix .o, $(SRC_PHILO)))

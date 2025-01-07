@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 18:15:39 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:39:29 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	*life_cicle(void	*arg)
 	meals = philo->table->number_of_meals;
 	while (meals > 0)
 	{
+		//peegou o garfo
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);

@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:39:59 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 12:16:00 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:59:14 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,23 @@ void	receive_input(t_table *table, char **argv)
 
 void	philosophers_birth(t_table	*table)
 {
-	int				i;
+	int	i;
 
 	i = 0;
 	pthread_mutex_init(&table->mutex_printf, NULL);
+	forge_forks(table);
 	table->philos = malloc(sizeof(t_philo) * table->nbr_of_philo);
+	memset(table->philos, 0, sizeof(t_philo) * table->nbr_of_philo);
 	while (i < table->nbr_of_philo)
 	{
 		table->philos[i].id = i;
 		table->philos[i].table = table;
+		table->philos[i].left_fork = &table->forks[i];
+		table->philos[i].right_fork = &table->forks[i + 1 % table->nbr_of_philo];
 		pthread_create(&table->philos[i].thread_id, NULL, &life_cicle, &table->philos[i]);
 		//usleep(2000);
 		i++;
 	}
-	i = 0;
-	while (i < table->nbr_of_philo)
-		pthread_join(table->philos[i++].thread_id, NULL);
-	pthread_mutex_destroy(&table->mutex_printf);
 }
 
 int main(int argc, char **argv)

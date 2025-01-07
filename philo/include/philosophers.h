@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 12:04:52 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:30:28 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
@@ -33,7 +34,7 @@ enum e_actions
 typedef struct s_fork
 {
     int     fork_id;
-    t_mutex fork;
+    t_mutex fork_mutex;
 }   t_fork;
 
 typedef struct s_philo
@@ -62,8 +63,8 @@ typedef struct s_table
 }   t_table;
 
 /*** FUNCTIONS ***/
-
 void	    print_mutex(t_philo *philo, int action);
+void        forge_forks(t_table *table);
 void	    *life_cicle(void	*arg);
 void	    clean_corpses(t_table *table);
 

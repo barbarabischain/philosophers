@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:39:59 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 14:59:14 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:03:45 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	receive_input(t_table *table, char **argv)
 	table->time_to_die = ft_atol(argv[2]) * 1000;
 	table->time_to_eat = ft_atol(argv[3]) * 1000;
 	table->time_to_sleep = ft_atol(argv[4]) * 1000;
+	table->die = 0;
 	if (argv[5])
 		table->number_of_meals = ft_atol(argv[5]);
 	else

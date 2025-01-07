@@ -6,16 +6,29 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 14:39:29 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:01:13 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-// void	taking_forks(t_philo *philo)
-// {
-
-// }
+void	taking_forks(t_philo *philo)
+{
+	if(philo->id % 2 == 0)
+	{
+		pthread_mutex_lock(&philo->left_fork->fork_mutex);
+		print_mutex(philo, HOLDING_FORK);
+		pthread_mutex_lock(&philo->right_fork->fork_mutex);
+		print_mutex(philo, HOLDING_FORK);
+	}
+	else
+	{
+		pthread_mutex_lock(&philo->left_fork->fork_mutex);
+		print_mutex(philo, HOLDING_FORK);
+		pthread_mutex_lock(&philo->right_fork->fork_mutex);
+		print_mutex(philo, HOLDING_FORK);
+	}
+}
 
 void	eating(t_philo *philo)
 {
@@ -43,7 +56,7 @@ void	*life_cicle(void	*arg)
 	meals = philo->table->number_of_meals;
 	while (meals > 0)
 	{
-		//peegou o garfo
+		taking_forks(philo);
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);

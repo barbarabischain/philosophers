@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 14:30:28 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:51:00 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_table
     long            time_to_sleep;
     long            number_of_meals;
     long            start_time;
-    int             end;
+    int             die;
     t_fork          *forks;
     t_philo         *philos;
     pthread_mutex_t mutex_printf;

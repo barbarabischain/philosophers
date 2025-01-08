@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 16:51:00 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:21:25 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_philo
     pthread_t   thread_id;
     t_fork      *left_fork;
     t_fork      *right_fork;
-    int         last_meal;
-    int         nbr_of_meals;
+    long         last_meal;
+    int          nbr_of_meals;
     t_table     *table;
 }   t_philo;
 
@@ -66,6 +66,7 @@ typedef struct s_table
 void	    print_mutex(t_philo *philo, int action);
 void        forge_forks(t_table *table);
 void	    *life_cicle(void	*arg);
+int	        someone_is_dead(t_philo	*philo);
 void	    clean_corpses(t_table *table);
 
 /*** UTILS ***/

@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 19:01:13 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/08 13:33:26 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	taking_forks(t_philo *philo)
 	}
 	else
 	{
-		pthread_mutex_lock(&philo->left_fork->fork_mutex);
-		print_mutex(philo, HOLDING_FORK);
 		pthread_mutex_lock(&philo->right_fork->fork_mutex);
+		print_mutex(philo, HOLDING_FORK);
+		pthread_mutex_lock(&philo->left_fork->fork_mutex);
 		print_mutex(philo, HOLDING_FORK);
 	}
 }
@@ -33,7 +33,9 @@ void	taking_forks(t_philo *philo)
 void	eating(t_philo *philo)
 {
 	print_mutex(philo, EATING);
-	usleep(philo->table->time_to_eat); //time to eat esta em milisegundo -> passar para micro (dica)
+	usleep(philo->table->time_to_eat);
+    pthread_mutex_unlock(&philo->left_fork->fork_mutex);
+    pthread_mutex_unlock(&philo->right_fork->fork_mutex);
 }
 
 void	sleeping(t_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:54:02 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/08 17:12:53 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:02:01 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void	print_mutex(t_philo *philo, int action)
 		printf("%ld %d is thinking\n", current_time, philo->id);
 	else if (action == SLEEPING)
 		printf("%ld %d is sleeping\n", current_time, philo->id);
+	else if (action == DIE)
+		printf("%ld %d died\n", current_time, philo->id);
 	pthread_mutex_unlock(&philo->table->mutex_printf);
 }

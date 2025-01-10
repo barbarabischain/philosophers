@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:39:59 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/08 14:59:09 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:38:53 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	input_checker(int argc, char *argv[])
 	{
 		if (!is_digit(argv[i]))
 		{
-			write(2, "invalid input: expected a number\n", 34);
+			write(2, "invalid input\n", 14);
 			return (0);
 		}
 		i++;
@@ -44,7 +44,7 @@ int	input_checker(int argc, char *argv[])
 void	receive_input(t_table *table, char **argv)
 {
 	table->nbr_of_philo = ft_atol(argv[1]);
-	table->time_to_die = ft_atol(argv[2]) * 1000;
+	table->time_to_die = ft_atol(argv[2]);
 	table->time_to_eat = ft_atol(argv[3]) * 1000;
 	table->time_to_sleep = ft_atol(argv[4]) * 1000;
 	table->die = 0;
@@ -60,16 +60,19 @@ void	philosophers_birth(t_table	*table)
 	int	i;
 
 	i = 0;
+	pthread_mutex_init(&table->mutex_death, NULL);
 	pthread_mutex_init(&table->mutex_printf, NULL);
 	forge_forks(table);
 	table->philos = malloc(sizeof(t_philo) * table->nbr_of_philo);
 	memset(table->philos, 0, sizeof(t_philo) * table->nbr_of_philo);
 	while (i < table->nbr_of_philo)
 	{
+		pthread_mutex_init(&table->philos[i].mutex_meal, NULL);
 		table->philos[i].id = i;
 		table->philos[i].table = table;
 		table->philos[i].left_fork = &table->forks[i];
 		table->philos[i].right_fork = &table->forks[(i + 1) % table->nbr_of_philo];
+		table->philos[i].last_meal = get_time();
 		pthread_create(&table->philos[i].thread_id, NULL, &life_cicle, &table->philos[i]);
 		i++;
 	}
@@ -83,6 +86,9 @@ int main(int argc, char **argv)
 		return (1);
 	receive_input(&table, argv);
 	philosophers_birth(&table);
+//	printf("die antes = %d\n", table.die);
+	search_corpses(&table);
+//	printf("die depois = %d\n", table.die);
 	// if (table.nbr_of_philo == 1)
 	// 	one_philo(&table);
 	clean_corpses(&table);

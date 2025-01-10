@@ -6,7 +6,7 @@
 #    By: babischa <babischa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:01:22 by babischa          #+#    #+#              #
-#    Updated: 2025/01/08 17:55:04 by babischa         ###   ########.fr        #
+#    Updated: 2025/01/10 12:05:31 by babischa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ HEADERS 	:=	-I ./include
 
 SRC_PHILO	:=	main \
 				life_cicle forge_forks \
-				print_actions \
-				monitor \
+				monitor print_actions \
 				clean_corpses \
 				utils
 

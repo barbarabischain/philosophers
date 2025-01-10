@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/08 18:21:25 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:01:11 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ enum e_actions
     EATING,
     THINKING,
     SLEEPING,
+    DIE,
 };
 
 typedef struct s_fork
@@ -39,13 +40,14 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-    int         id;
-    pthread_t   thread_id;
-    t_fork      *left_fork;
-    t_fork      *right_fork;
-    long         last_meal;
-    int          nbr_of_meals;
-    t_table     *table;
+    int             id;
+    pthread_t       thread_id;
+    t_fork          *left_fork;
+    t_fork          *right_fork;
+    long            last_meal;
+    int             nbr_of_meals;
+    pthread_mutex_t mutex_meal;
+    t_table         *table;
 }   t_philo;
 
 typedef struct s_table
@@ -60,13 +62,14 @@ typedef struct s_table
     t_fork          *forks;
     t_philo         *philos;
     pthread_mutex_t mutex_printf;
+    pthread_mutex_t mutex_death;
 }   t_table;
 
 /*** FUNCTIONS ***/
+void	    *life_cicle(void	*arg);
 void	    print_mutex(t_philo *philo, int action);
 void        forge_forks(t_table *table);
-void	    *life_cicle(void	*arg);
-int	        someone_is_dead(t_philo	*philo);
+void	    search_corpses(t_table *table);
 void	    clean_corpses(t_table *table);
 
 /*** UTILS ***/

@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/13 17:42:13 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:44:26 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void		search_corpses(t_table *table);
 void		clean_corpses(t_table *table);
 int			philo_is_dead(t_philo *philo);
 void		drop_forks(t_philo *philo);
+void		*one_philo(void *arg);
 
 /*** UTILS ***/
 long		get_time(void);

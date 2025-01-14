@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:14:50 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/14 12:13:49 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:18:05 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	eating(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->mutex_meal);
 	philo->last_meal = get_time() + philo->table->time_to_eat;
+	//philo->last_meal = get_time();
 	pthread_mutex_unlock(&philo->mutex_meal);
 	print_mutex(philo, EATING);
 	usleep(philo->table->time_to_eat * 1000);

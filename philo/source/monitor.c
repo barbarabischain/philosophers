@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:54:36 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/13 15:39:12 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:15:29 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	search_corpses(t_table *table)
 {
 	while (1)
 	{
+		usleep(100);
 		if (check_death(table) == 1)
 		{
 			pthread_mutex_lock(&table->mutex_death);

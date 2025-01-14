@@ -6,13 +6,13 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:31:04 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/06 17:17:59 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:02:35 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-long get_time(void)
+long	get_time(void)
 {
 	struct timeval	time;
 

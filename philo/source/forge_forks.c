@@ -6,13 +6,13 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:36:12 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/07 14:30:53 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:57:13 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-void forge_forks(t_table *table)
+void	forge_forks(t_table *table)
 {
 	int	i;
 
@@ -24,5 +24,19 @@ void forge_forks(t_table *table)
 		table->forks[i].fork_id = i;
 		pthread_mutex_init(&table->forks[i].fork_mutex, NULL);
 		i++;
+	}
+}
+
+void	drop_forks(t_philo *philo)
+{
+	if (philo->id % 2 == 0)
+	{
+		pthread_mutex_unlock(&philo->left_fork->fork_mutex);
+		pthread_mutex_unlock(&philo->right_fork->fork_mutex);
+	}
+	else
+	{
+		pthread_mutex_unlock(&philo->right_fork->fork_mutex);
+		pthread_mutex_unlock(&philo->left_fork->fork_mutex);
 	}
 }

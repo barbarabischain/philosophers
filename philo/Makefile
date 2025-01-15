@@ -6,7 +6,7 @@
 #    By: babischa <babischa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:01:22 by babischa          #+#    #+#              #
-#    Updated: 2025/01/14 13:44:09 by babischa         ###   ########.fr        #
+#    Updated: 2025/01/15 15:32:54 by babischa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ FLAGS 		:=	-Werror -Wextra -Wall -g3
 
 HEADERS 	:=	-I ./include
 
-SRC_PHILO	:=	main \
-				life_cicle forge_forks one_philo\
-				monitor print_actions philo_is_dead\
-				clean_corpses \
-				utils
+SRC_PHILO	:=	main utils print_actions\
+				set_table philosophers_birth life_cicle forks \
+				check_philos monitor\
+				one_philo \
+				clean_corpses
 
 OBJ_PHILO	:=	$(addprefix objects/, $(addsuffix .o, $(SRC_PHILO)))
 

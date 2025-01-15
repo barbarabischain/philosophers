@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:40:06 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/14 13:44:26 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:48:16 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ enum e_actions
 
 typedef struct s_fork
 {
-	int		fork_id;
-	t_mutex	fork_mutex;
+	int			fork_id;
+	t_mutex		fork_mutex;
 }	t_fork;
 
 typedef struct s_philo
@@ -46,8 +46,8 @@ typedef struct s_philo
 	t_fork			*right_fork;
 	long			last_meal;
 	long			start_time;
-	int				nbr_of_meals;
-	pthread_mutex_t	mutex_meal;
+	int				meals_eaten;
+	pthread_mutex_t	mutex_lastmeal;
 	t_table			*table;
 }	t_philo;
 
@@ -59,25 +59,29 @@ typedef struct s_table
 	long			time_to_sleep;
 	long			number_of_meals;
 	int				die;
-	t_fork			*forks;
-	t_philo			*philos;
-	pthread_mutex_t	mutex_printf;
 	pthread_mutex_t	mutex_death;
+	pthread_mutex_t	mutex_printf;
+	t_philo			*philos;
+	t_fork			*forks;
 }	t_table;
 
 /*** FUNCTIONS ***/
-void		*life_cicle(void *arg);
-void		print_mutex(t_philo *philo, int action);
+void		set_table(t_table *table, char **argv);
 void		forge_forks(t_table *table);
-void		search_corpses(t_table *table);
-void		clean_corpses(t_table *table);
-int			philo_is_dead(t_philo *philo);
 void		drop_forks(t_philo *philo);
+void		philosophers_birth(t_table *table);
+void		*life_cicle(void	*arg);
 void		*one_philo(void *arg);
+void		print_actions(t_philo *philo, int action);
+void		clean_corpses(t_table *table);
+int			is_able_to_eat(t_philo *philo);
+int			check(t_philo *philo);
+int			find_corpse(t_table *table);
+int			philo_is_dead(t_philo *philo);
 
 /*** UTILS ***/
 long		get_time(void);
-long int	ft_atol(const char *nptr);
 int			is_digit(char *str);
+long int	ft_atol(const char *nptr);
 
 #endif

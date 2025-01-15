@@ -6,13 +6,13 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:54:02 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/11 19:02:59 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:47:57 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-void	print_mutex(t_philo *philo, int action)
+void	print_actions(t_philo *philo, int action)
 {
 	long	current_time;
 

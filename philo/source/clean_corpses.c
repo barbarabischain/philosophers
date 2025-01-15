@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 11:53:49 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/13 14:03:11 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:48:50 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	clean_corpses(t_table *table)
 	i = 0;
 	while (i < table->nbr_of_philo)
 	{
-		pthread_mutex_destroy(&table->philos[i].mutex_meal);
+		pthread_mutex_destroy(&table->philos[i].mutex_lastmeal);
 		pthread_mutex_destroy(&table->forks[i++].fork_mutex);
 	}
 	pthread_mutex_destroy(&table->mutex_printf);

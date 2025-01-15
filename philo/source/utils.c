@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:31:04 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/13 14:02:35 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:57:15 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,19 @@ long int	ft_atol(const char *nptr)
 	}
 	return (num * sign);
 }
+
+//void print_variaveis(t_table *table)
+// {
+// 	int	i = 0;
+
+// 	while (i < table->nbr_of_philo)
+// 	{
+// 		printf("philo id     %d\n", table->philos[i].id);
+// 		printf("left fork    %d\n", table->philos[i].left_fork->fork_id);
+// 		printf("right fork   %d\n", table->philos[i].right_fork->fork_id);
+// 		printf("nbr of meals %d\n", table->philos->nbr_meals);
+// 		printf("last_meal    %ld\n", table->philos[i].last_meal);
+// 		printf("start_time   %ld\n\n", table->philos[i].start_time);
+// 		i++;
+// 	}
+// }

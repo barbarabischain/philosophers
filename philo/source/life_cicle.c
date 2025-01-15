@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:05:48 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/15 14:41:33 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:33:11 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	eating(t_philo *philo)
 
 void	sleeping(t_philo *philo)
 {
-	//checar para ver se não vai morrer dormindo
 	print_actions(philo, SLEEPING);
 	usleep(philo->table->time_to_sleep * 1000);
 }
 
 void	thinking(t_philo *philo)
 {
+	usleep(10);
 	print_actions(philo, THINKING);
 }
 
@@ -61,13 +61,15 @@ void	*life_cicle(void	*arg)
 	int			i;
 
 	philo = (t_philo *) arg;
-	while (check(philo)) //funções : ninguem morreu e ninguem terminou de comer
+	if (philo->id % 2 != 0)
+		usleep(42);
+	while (check(philo))
 	{
 		f[i++](philo);
 		if (i == 4)
 			i = 0;
 	}
-	if (i == 0)
+	if (i == 1)
 		drop_forks(philo);
 	return (NULL);
 }

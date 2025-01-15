@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:54:36 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/15 15:47:27 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:21:40 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	find_corpse(t_table *table)
 	int	i;
 
 	i = 0;
+	usleep(200);
 	while (i < table->nbr_of_philo)
 	{
 		if (is_starving(&table->philos[i]))
@@ -36,6 +37,7 @@ int	find_corpse(t_table *table)
 			pthread_mutex_lock(&table->mutex_death);
 			table->die = 1;
 			pthread_mutex_unlock(&table->mutex_death);
+			print_actions(&table->philos[i], DIE);
 			return (1);
 		}
 	}

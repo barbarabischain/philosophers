@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:59:42 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/15 15:32:38 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:13:07 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	input_checker(int argc, char *argv[])
 	}
 	while (argv[i])
 	{
-		if (!is_digit(argv[i]))
+		if (!is_digit(argv[i]) || ft_atol(argv[i]) < 1)
 		{
 			write(2, "invalid input\n", 14);
 			return (0);
@@ -34,7 +34,7 @@ int	input_checker(int argc, char *argv[])
 	return (1);
 }
 
-int main(int argc, char	**argv)
+int	main(int argc, char	**argv)
 {
 	t_table	table;
 

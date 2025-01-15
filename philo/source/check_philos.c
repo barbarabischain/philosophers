@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:24:10 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/15 15:46:37 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:42:20 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_able_to_eat(t_philo *philo)
 		return (1);
 	else
 	{
-		if (philo->meals_eaten < philo->table->number_of_meals)
+		if (philo->meals_eaten <= philo->table->number_of_meals)
 			return (1);
 	}
 	return (0);

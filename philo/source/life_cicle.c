@@ -6,7 +6,7 @@
 /*   By: babischa <babischa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:05:48 by babischa          #+#    #+#             */
-/*   Updated: 2025/01/16 11:32:37 by babischa         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:15:57 by babischa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	sleeping(t_philo *philo)
 void	thinking(t_philo *philo)
 {
 	print_actions(philo, THINKING);
+	usleep(1000);
 }
 
 void	*life_cicle(void	*arg)
@@ -60,8 +61,6 @@ void	*life_cicle(void	*arg)
 	int			i;
 
 	philo = (t_philo *) arg;
-	if (philo->id % 2 != 0)
-		usleep(100);
 	while (check(philo))
 	{
 		f[i++](philo);
